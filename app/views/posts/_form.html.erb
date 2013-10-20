@@ -25,22 +25,6 @@
   </div>
 <% end %>
 
-<p>
-<strong>Categories in:</strong> 
-	<% @post.categories.each do |category|%>
-		<%= category.name + " | " %>
-	<% end %>
-</p>
 
-<%= form_for [@post, Category.new] do |f| %>
-  <p>
-	<%= f.label :name, "New category name" %><br/>
-	<%= f.text_area :name %>
-  </p>
-  
-  <p>
-    <%= f.submit "Add to category" %>
-  </p>
-<% end %>
 
 <br/><br/>
