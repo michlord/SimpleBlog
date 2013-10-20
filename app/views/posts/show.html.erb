@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @post.title %>
+</h1>
+<p>
+  <%= @post.body %>
+</p>
+
+<p>
+<strong>Categories in:</strong> 
+	<% @categories_in.each do |category|%>
+		<%= category.name + " | " %>
+	<% end %>
+</p>
+<hr/>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+
+
+<h2>Comments</h2>
+<div id="comments" style="background-color:#E0E0E0">
+	<%= render :partial => @post.comments %>
+</div>
+
+<%= form_for [@post, Comment.new] do |f| %>
+  <p>
+	<%= f.label :body, "New Comment" %><br/>
+	<%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit "Add Comment" %>
+  </p>
+<% end %>
