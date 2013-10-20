@@ -6,5 +6,5 @@ Blog::Application.routes.draw do
   end
   
   
-  root 'welcome#index'
+  root 'posts#index'
 end
