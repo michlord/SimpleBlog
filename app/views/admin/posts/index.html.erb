@@ -1,0 +1,19 @@
+<h1>Listing posts</h1>
+
+<p>by category:</p>
+
+<table>
+  <% @posts.each do |post| %>
+      <tr><td><strong><%= post.title %></strong></td></tr>
+      <tr><td><%= post.body[0,128] + " (...)" %></td></tr>
+	  <tr><td>
+	      <%= link_to 'Show', admin_post_path(post) %> |
+          <%= link_to 'Edit', edit_admin_post_path(post) %> |
+          <%= link_to 'Destroy', admin_post_path(post), action: :destroy , method: :delete, data: { confirm: 'Are you sure?' } %> 
+	  </td></tr>
+      </tr>
+   <% end %>
+</table>
+
+<br/>
+<%= link_to 'New Post', new_admin_post_path %>
